@@ -42,7 +42,7 @@ Also, to make using janbanery-shell even more painless, the key will be stored u
 Using it
 --------
 In order to use **Janbanery-Shell** at "full speed", you will need to learn a little of the Janbanery fluent API.
-It's really simple, there are some examples bellow, but it's best to just look at the **<a href="https://github.com/ktoso/janbanery/wiki">>iki of Janbanery</a>**.
+It's really simple, there are some examples bellow, but it's best to just look at the **<a href="https://github.com/ktoso/janbanery/wiki">wiki of Janbanery</a>**.
 
 Or even better... **Use TAB completition**! It's always up to date as it's being built with reflection from Janbanery sources. Also note that if a method takes parameters,
 the completition will complete `janbanery.method(` instead of `janbanery.method()` (which it would do if the method takes no arguments).
@@ -85,7 +85,7 @@ Just to make you get the feel of Janbanery let's look at some examples right now
 
 **You can also work on columns**
 
-``java
+```java
     Column column = new Column.Builder("Testing").capacity(5).build();
 
     Column last = janbanery.columns().last();
@@ -95,18 +95,18 @@ Just to make you get the feel of Janbanery let's look at some examples right now
 
     janbanery.columns().create(column).beforeLast();
     janbanery.columns().move(column).toPosition(5);
-``
+```
 
 **And here's how you could use the flows if you wanted to**
 
-``java
+```java
     Task task = janbanery.tasks().create(task)
                          .assign().to(me) // task flow
                          .move().toNextColumn() // task movement flow
                          .move().toNextColumn() // task movement flow
                          .mark().asReadyToPull() // task flow
                          .get(); // task
-``
+```
 
 **And there's much more...!**
 
