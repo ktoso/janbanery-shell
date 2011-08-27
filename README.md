@@ -61,58 +61,57 @@ Just to make you get the feel of Janbanery let's look at some examples right now
 **Ok, what projects can I access?**
 
 ```java
-    List<Project> projects = janbanery.projects()
+def projects = janbanery.projects().all();
+
+def projects = janbanery.usingWorkspace("janbanery").projects()
                                        .all();
 
-    List<Project> projects = janbanery.usingWorkspace("janbanery").projects()
-                                       .all();
+janbanery.projects().byName("janbaneryProject");
 
-    Project project = janbanery.projects().byName("janbaneryProject");
+# the above will be assigned to a variable with the name r0
 
-    List<Project> projects = janbanery.projects()
-                                       .allAcrossWorkspaces();
+# and the bellow would be assigned to r1, you get the idea :-)
+janbanery.projects().allAcrossWorkspaces();
+
 ```
 
 **Get my User**
 
 ```java
-    User me = janbanery.users()
-                       .current();
+User me = janbanery.users().current();
 ```
 
 **Take a look at the possible Task Types**
 
 ```java
-    List<TaskType> all = janbanery.taskTypes()
-                                  .all();
+List<TaskType> all = janbanery.taskTypes().all();
 
-    TaskType any = janbanery.taskTypes()
-                            .any();
+TaskType any = janbanery.taskTypes().any();
 ```
 
 **You can also work on columns**
 
 ```java
-    Column column = new Column.Builder("Testing").capacity(5).build();
+Column column = new Column.Builder("Testing").capacity(5).build();
 
-    Column last = janbanery.columns().last();
-    Column beforeLast = janbanery.columns().before(last);
+Column last = janbanery.columns().last();
+Column beforeLast = janbanery.columns().before(last);
 
-    column = janbanery.columns().create(column).after(beforeLast);
+column = janbanery.columns().create(column).after(beforeLast);
 
-    janbanery.columns().create(column).beforeLast();
-    janbanery.columns().move(column).toPosition(5);
+janbanery.columns().create(column).beforeLast();
+janbanery.columns().move(column).toPosition(5);
 ```
 
 **And here's how you could use the flows if you wanted to**
 
 ```java
-    Task task = janbanery.tasks().create(task)
-                         .assign().to(me) // task flow
-                         .move().toNextColumn() // task movement flow
-                         .move().toNextColumn() // task movement flow
-                         .mark().asReadyToPull() // task flow
-                         .get(); // task
+Task task = janbanery.tasks().create(task)
+                     .assign().to(me) // task flow
+                     .move().toNextColumn() // task movement flow
+                     .move().toNextColumn() // task movement flow
+                     .mark().asReadyToPull() // task flow
+                     .get(); // task
 ```
 
 **And there's much more...!**
