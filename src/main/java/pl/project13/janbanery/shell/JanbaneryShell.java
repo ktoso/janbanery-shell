@@ -1,5 +1,7 @@
 package pl.project13.janbanery.shell;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
 import groovy.lang.Binding;
 import groovy.lang.GroovyShell;
 import jline.CandidateListCompletionHandler;
@@ -36,7 +38,6 @@ public class JanbaneryShell implements Runnable, HasDefinedVariables
       this.janbanery = janbanery;
 
       console = new ConsoleReader();
-      console.clearScreen();
       console.setDefaultPrompt("> ");
       console.setUseHistory(true);
       console.setCompletionHandler(new CandidateListCompletionHandler());
@@ -136,10 +137,18 @@ public class JanbaneryShell implements Runnable, HasDefinedVariables
       println("------------------- end of evaluated -------------------");
    }
 
-   private void printCollection(List evalList) {
+   private void printCollection(List<?> evalList) {
       try
       {
-         console.printColumns(evalList);
+         List<String> columnStrings = newArrayList(Collections2.transform(evalList, new Function<Object, String>()
+         {
+            @Override
+            public String apply(Object input)
+            {
+               return  input.toString();
+            }
+         }));
+         console.printColumns(columnStrings);
       }
       catch (IOException e)
       {
