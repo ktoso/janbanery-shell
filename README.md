@@ -31,8 +31,8 @@ java -jar uber-janbanery-shell-1.0-SNAPSHOT.jar
 ```
 
 And start using it!
-Logging in and how it works
 
+Logging in and how it works
 ---------------------------
 It's easy to login with *Janbanery-Shell*, just enter your username and password. If you entered it right, *the API key for kanbanery will be fetched*,
 and used thoughout all requests to kanbanery - to keep your password safe!
@@ -53,7 +53,7 @@ Just to make you get the feel of Janbanery let's look at some examples right now
 
 **Ok, what projects can I access?**
 
-``java
+```java
     List<Project> projects = janbanery.projects()
                                        .all();
 
@@ -64,24 +64,24 @@ Just to make you get the feel of Janbanery let's look at some examples right now
 
     List<Project> projects = janbanery.projects()
                                        .allAcrossWorkspaces();
-``
+```
 
 **Get my User**
 
-``java
+```java
     User me = janbanery.users()
                        .current();
-``
+```
 
 **Take a look at the possible Task Types**
 
-``java
+```java
     List<TaskType> all = janbanery.taskTypes()
                                   .all();
 
     TaskType any = janbanery.taskTypes()
                             .any();
-``
+```
 
 **You can also work on columns**
 
