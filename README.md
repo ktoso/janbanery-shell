@@ -1,5 +1,5 @@
-Janbanery - Java Kanbanery API Connector
-========================================
+Janbanery-Shell - Kanbanery.com board from your favourite shell!
+=====================================================================
 Kanbanery
 ---------
 <a href="https://kanbanery.com/" style="display:block; background:black;">
@@ -31,8 +31,8 @@ java -jar uber-janbanery-shell-1.0-SNAPSHOT.jar
 ```
 
 And start using it!
-
 Logging in and how it works
+
 ---------------------------
 It's easy to login with *Janbanery-Shell*, just enter your username and password. If you entered it right, *the API key for kanbanery will be fetched*,
 and used thoughout all requests to kanbanery - to keep your password safe!
