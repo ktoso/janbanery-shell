@@ -6,7 +6,7 @@
             </Pattern>
         </layout>
     </appender>
-    <logger name="pl.project13" level="INFO"/>
+    <logger name="pl.project13" level="WARN"/>
     <root level="debug">
         <appender-ref ref="STDOUT"/>
     </root>

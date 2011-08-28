@@ -54,6 +54,10 @@ It's really simple, there are some examples bellow, but it's best to just look a
 Or even better... **Use TAB completition**! It's always up to date as it's being built with reflection from Janbanery sources. Also note that if a method takes parameters,
 the completition will complete `janbanery.method(` instead of `janbanery.method()` (which it would do if the method takes no arguments).
 
+Example video
+-------------
+You may want to check out the video with it in action <a href="http://www.youtube.com/watch?v=m-wx1Zq7hCM">on youtube</a>.
+
 Some examples
 -------------
 Just to make you get the feel of Janbanery let's look at some examples right now:
@@ -68,11 +72,26 @@ def projects = janbanery.usingWorkspace("janbanery").projects()
 
 janbanery.projects().byName("janbaneryProject");
 
-# the above will be assigned to a variable with the name r0
-
-# and the bellow would be assigned to r1, you get the idea :-)
+// the above will be assigned to a variable with the name r0,
+/ /and the result bellow would be assigned to r1, you get the idea :-)
 janbanery.projects().allAcrossWorkspaces();
 
+```
+
+Depending on the **auto assign to variable** trick, you cound for example do this:
+
+```java
+def me = janbanery.users.current();
+// me
+
+janbanery.tasks().byName("Finish coding")
+// r1
+
+janbanery.tasks().assign(r1).to(me)
+// r3 is a taskFlow
+
+def taskFlow = r3
+taskFlow.move().toNextColumn()
 ```
 
 **Get my User**
