@@ -31,6 +31,8 @@ Janbanery Shell
 ===============
 Janbanery shell is using the **Java Script Engine** and **Groovy** to enable you to use your Kanbanery board, without even taking a look at it, *all from your favourite place - the shell*.
 
+<img src="https://github.com/ktoso/janbanery-shell/raw/master/doc/board_command_v1.png" alt="janbanery kanbanery shell"/>
+
 If you want to use **Janbanery-shell**, just download the **<a href="https://github.com/ktoso/janbanery-shell/blob/master/release/uber-janbanery-shell-1.0-SNAPSHOT.jar?raw=true">executable jar</a>** and run it by:
 
 ```java
