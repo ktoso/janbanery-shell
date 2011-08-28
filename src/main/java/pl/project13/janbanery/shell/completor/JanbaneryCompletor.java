@@ -56,6 +56,24 @@ public class JanbaneryCompletor implements Completor
       }
 
       if (buffer.isEmpty()
+            || buffer.equals("b")
+            || buffer.equals("bo")
+            || buffer.equals("boar")
+            || buffer.equals("board"))
+      {
+         candidates.add("board");
+      }
+
+      if (buffer.isEmpty()
+            || buffer.equals("e")
+            || buffer.equals("ex")
+            || buffer.equals("exi")
+            || buffer.equals("exit")                                                            )
+      {
+         candidates.add("exit");
+      }
+
+      if (buffer.isEmpty()
             || buffer.equals("j")
             || buffer.equals("ja")
             || buffer.equals("ja")
