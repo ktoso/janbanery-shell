@@ -20,6 +20,13 @@ Feel free to use this library in any project integrating Kanbanery with your app
 
 If you have any comments, feel free to open issues or contact me <a href="mailto:konrad.malawski@java.pl">via email</a>.
 
+Janbanery for Android
+=====================
+Hey, did you know I'm also working on a Kanbanery for Android? Check it out on the market **(very soon)**!
+It also has it's small website if you'd want to take a look: <a href="http://kanbanery.project13.pl">Kanbanery For Android .Project13.pl</a>.
+
+Cheers!
+
 Janbanery Shell
 ===============
 Janbanery shell is using the **Java Script Engine** and **Groovy** to enable you to use your Kanbanery board, without even taking a look at it, *all from your favourite place - the shell*.
