@@ -9,6 +9,7 @@ import jline.ConsoleReader;
 import pl.project13.janbanery.core.Janbanery;
 import pl.project13.janbanery.resources.Project;
 import pl.project13.janbanery.resources.Workspace;
+import pl.project13.janbanery.shell.action.BoardAction;
 import pl.project13.janbanery.shell.completor.JanbaneryCompletor;
 
 import java.io.IOException;
@@ -22,6 +23,7 @@ public class JanbaneryShell implements Runnable, HasDefinedVariables
 {
    private static final String EXIT_CMD = "exit";
    private static final String WORKSPACES_CMD = "workspaces";
+   private static final String BOARD_CMD = "board";
 
    private Janbanery janbanery;
 
@@ -65,6 +67,8 @@ public class JanbaneryShell implements Runnable, HasDefinedVariables
          else if (command.equals(WORKSPACES_CMD))
          {
             doWorkspaces();
+         } else if(command.equals(BOARD_CMD)) {
+            doBoard();
          }
          else
          {
@@ -90,6 +94,11 @@ public class JanbaneryShell implements Runnable, HasDefinedVariables
 
       janbanery.close();
       System.exit(0);
+   }
+
+   private void doBoard()
+   {
+      new BoardAction(janbanery, console).call();
    }
 
    private void runInGroovyShell(String command)
