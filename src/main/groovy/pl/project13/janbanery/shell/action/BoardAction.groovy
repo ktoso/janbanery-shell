@@ -3,6 +3,7 @@ package pl.project13.janbanery.shell.action
 import jline.ANSIBuffer.ANSICodes
 import jline.ConsoleReader
 import pl.project13.janbanery.core.Janbanery
+import pl.project13.janbanery.shell.utils.ANSI
 
 class BoardAction implements Action
 {
@@ -10,9 +11,6 @@ class BoardAction implements Action
    private static final String emptyLine = ' ' * colW
    private static final String fineLine = '-' * colW
    private static final String thickLine = '=' * colW
-
-   private static final int BOLD = 1
-   private static final int ALL_OFF = 0
 
    Janbanery janbanery
    ConsoleReader console
@@ -110,7 +108,7 @@ class BoardAction implements Action
          def estimate = estimates[task.estimateId]
 
          result << "$taskId [${taskTypes[task.taskTypeId].name}][${estimate?.label == null ? '-' : estimate.label }]"
-         result << "${ANSICodes.attrib(BOLD)}${task.title.wrap()}${ANSICodes.attrib(ALL_OFF)}"
+         result << "${ANSICodes.attrib(ANSI.BOLD)}${task.title.wrap()}${ANSICodes.attrib(ANSI.BOLD)}"
          result.addAll ("${task?.description}".wrap().split('\n'))
          result << "Owner: ${owner?.firstName} ${owner?.lastName}"
          result << fineLine
