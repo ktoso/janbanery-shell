@@ -28,18 +28,39 @@ java_import 'pl.project13.janbanery.core.JanbaneryFactory'
 
 @apikey = '4f76f3cbc5ff0b6df0f22ca3803f559a8e1d7a23'
 
+@janbanery = JanbaneryFactory.new().connect_using('konrad.malawski@llp.pl', 'llp128maximum').to_workspace('llp')
+@janbanery.using_project('RTDashboard')
+
 def c(name)
   {:value => name, :alignment => :center}
 end
 
-janbanery = JanbaneryFactory.new().connect_using(@apiKey).to_workspace('llp')
-
-janbanery.projects().by_name('RTConnectDashboard')
-
-@columns = janbanery.columns().all().map { |c| c.name }
-
-b = table do |t|
-  t.headings = @columns
+def col(col_name)
+  @janbanery.columns().by_name(col_name)[0]
 end
 
-puts b
+def task(task)
+  task.title[0,20]
+end
+
+
+
+projects = @janbanery.projects().all().get(0)
+
+@columns = @janbanery.columns().all().map { |c| c.name }
+
+@board = table @columns
+
+@tasks_0 = @janbanery.tasks().all_in(col(@columns[0]));
+@tasks_1 = @janbanery.tasks().all_in(col(@columns[1]));
+@tasks_2 = @janbanery.tasks().all_in(col(@columns[2]));
+@tasks_3 = @janbanery.tasks().all_in(col(@columns[3]));
+@tasks_4 = @janbanery.tasks().all_in(col(@columns[4]));
+for i in 0..1 do
+  row = [task(@tasks_0[i]), task(@tasks_1[i]), task(@tasks_2[i]), task(@tasks_3[i]), task(@tasks_4[i])]
+   
+  @board << row
+end
+
+
+puts @board
